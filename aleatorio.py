@@ -12,7 +12,7 @@ def buscar():
 	endpoint = request.form.get('moeda').upper()
 	url = "https://economia.awesomeapi.com.br/json/last/"
 	url_completa = url + endpoint
-	resposta = requests.get(url_completa, timeout=10)
+	resposta = requests.get(url_completa)
 	dados = resposta.json()
 	endp_formatado = endpoint.replace('-', '')
 

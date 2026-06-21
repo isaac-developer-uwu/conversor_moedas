@@ -9,7 +9,7 @@ def main():
 	return render_template('home.html')
 @app.route('/buscar', methods=['POST'])
 def buscar():
-	endpoint = request.form.get('moeda')
+	endpoint = request.form.get('moeda').upper()
 	url = "https://economia.awesomeapi.com.br/json/last/"
 	url_completa = url + endpoint
 	resposta = requests.get(url_completa, timeout=10)
@@ -26,4 +26,6 @@ def buscar():
 		return render_template('result.html', resultado=valor_float)
 
 if __name__ == '__main__':
-	app.run(debug=True, port=5001, host='0.0.0.0')
+	import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

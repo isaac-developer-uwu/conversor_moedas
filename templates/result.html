@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resultado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cor - Material Design 3 (Dark Theme) */
+        :root {
+            --md-sys-color-background: #111318;       /* Preto/Grafite profundo */
+            --md-sys-color-surface: #1a1c22;          /* Superfície do card */
+            --md-sys-color-primary: #a8c7fa;          /* Azul M3 Light para destaque */
+            --md-sys-color-on-surface: #e2e2e6;       /* Texto claro principal */
+            --md-sys-color-on-surface-variant: #c3c7cf;/* Texto secundário (label) */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-surface);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container do Resultado (Card MD3) */
+        .tela-resultado {
+            background-color: var(--md-sys-color-surface);
+            padding: 40px 32px;
+            border-radius: 28px; /* Cantos arredondados característicos do M3 */
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Label pequena acima do valor (Padrão de跟 design do M3) */
+        .label {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 8px;
+        }
+
+        /* O H1 estilizado */
+        .resultado {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--md-sys-color-primary); /* Valor em destaque com o azul M3 */
+            letter-spacing: -0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tela-resultado">
+        <div class="label">Preço de Compra</div>
+        <h1 class="resultado">{{ resultado }}</h1>
+    </div>
+</body>
+</html>

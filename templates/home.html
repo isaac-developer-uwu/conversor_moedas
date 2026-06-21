@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Conversor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cor - Material Design 3 (Dark Theme) */
+        :root {
+            --md-sys-color-background: #111318;       /* Preto/Grafite profundo */
+            --md-sys-color-surface: #1a1c22;          /* Superfície dos cards */
+            --md-sys-color-primary: #a8c7fa;          /* Azul M3 Light (ótimo contraste no dark) */
+            --md-sys-color-on-primary: #062e6f;       /* Azul escuro para texto sobre o Primary */
+            --md-sys-color-outline: #8c9199;          /* Cor das bordas */
+            --md-sys-color-on-surface: #e2e2e6;       /* Texto claro principal */
+            --md-sys-color-surface-variant: #43474e;  /* Fundo do select */
+            --md-sys-color-on-surface-variant: #c3c7cf;/* Texto secundário */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-surface);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Principal (Card MD3) */
+        .tela {
+            background-color: var(--md-sys-color-surface);
+            padding: 32px;
+            border-radius: 28px; /* Cantos bem arredondados característicos do M3 */
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Estilização do Select (Menu de Opções) */
+        select {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: var(--md-sys-color-on-surface);
+            background-color: var(--md-sys-color-surface-variant);
+            border: none;
+            border-radius: 50px; /* M3 usa cantos levemente arredondados em inputs */
+            padding: 16px;
+            width: 100%;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none; /* Remove a seta padrão para customização */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c3c7cf'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 24px;
+        }
+
+        select:focus {
+            padding: 15px; /* Compensa o aumento da borda para não mover o layout */
+        }
+
+        /* Estilização do Botão (Filled Button MD3) */
+        button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: lowercase; /* Mantive o padrão do seu botão original */
+            letter-spacing: 0.1px;
+            color: var(--md-sys-color-on-primary);
+            background-color: var(--md-sys-color-primary);
+            border: none;
+            border-radius: 100px; /* Botões M3 são totalmente arredondados (pílula) */
+            height: 40px;
+            padding: 0 24px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.2s, background-color 0.2s;
+        }
+
+        /* Efeito de Hover e Interação (M3 State Overlay) */
+        button:hover {
+            background-color: #b3d1ff; /* Tom de azul levemente mais claro */
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4), 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            background-color: #94b8f7; /* Tom de azul ligeiramente mais escuro no clique */
+        }
+    </style>
+</head>
+<body>
+    <div class="tela">
+        <form action="/buscar" method="POST">
+            <select name="moeda">
+                <option value="USD-BRL">Dólar para Real</option>
+                <option value="BTC-BRL">Bitcoin para Real</option>
+            </select>
+            <button type="submit">buscar</button>
+        </form>
+    </div>
+</body>
+</html>
